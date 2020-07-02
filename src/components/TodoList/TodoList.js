@@ -8,15 +8,31 @@ class TodoList extends Component {
         margin: "20px 20px",
         width: "80%"
     }
+    data=[
+        {
+            id: 0,
+            name: 'zhao',
+            age: 18
+        },
+        {
+            id: 1,
+            name: 'wang',
+            age: 19
+        },
+        {
+            id: 2,
+            name: 'sun',
+            age: 20
+        },
+
+    ]
 
     render() {
         return (
             <div style={{ width: this.style.width, border: this.style.border, margin: this.style.margin }}>
                 <h3>我是List文件</h3>
                 <ul>
-                    <TodoItem>
-                        我是item里面的内容
-                    </TodoItem>
+                    <TodoItem data={[...this.data]} />
                 </ul>
             </div>
         );

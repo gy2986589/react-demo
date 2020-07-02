@@ -1,0 +1,122 @@
+***笔记***
+----------------------------------------------------------------------------------
+//                .-~~~~~~~~~-._       _.-~~~~~~~~~-.
+//            __.'              ~.   .~              `.__
+//          .'//                  \./                  \\`.
+//        .'//                     |                     \\`.
+//      .'// .-~"""""""~~~~-._     |     _,-~~~~"""""""~-. \\`.
+//    .'//.-"                 `-.  |  .-'                 "-.\\`.
+//  .'//______.============-..   \ | /   ..-============.______\\`.
+//.'______________________________\|/______________________________`.
+----------------------------------------------------------------------------------
+###创建、启动、打包：
+1、npx create-react-app 项目名
+2、npm start
+3、npm build
+
+###创建组件规范
+1、每创建一个组件新建一个文件夹，注意文件夹及文件名必须大写(react规范！！！！)；
+2、若一个文件下有多个组件，最好通过一个js文件暴露出去（比较方便、易于管理！！！）；
+
+###引入、暴露组件方式：
+方式1：
+ import xxx from "./xxxx";
+ import xxx from "./xxxx";
+
+ export {
+    xxx,
+    xxx
+ }
+
+ 方式2：
+ export {default as xxx} from "./xxx";
+
+
+###组件类型：
+1、无状态组件
+函数式定义的无状态组件
+2、状态组件
+extends React.Component定义的组件
+3、受控组件
+由父组件传递进来的props
+
+
+###组件传值
+1、父组件内：
+   cont a = '1'；
+   <子组件 data:a>
+      xxxx  //此值在子组件不会显示,子组件需要用this.props.children来接收
+   <子组件>
+2、子组件内：
+   this.props.data 接收值
+   this.props.children 可以接收到 "xxx" 这个值
+
+3、若传值数据较多 并且参数会有变动：
+   <xxx data={...数组或对象}/>
+
+###渲染：
+1、循环渲染方式：
+    {
+      this.data.map(item=>{
+         return <li key={item.id}>{item.name}</li>
+       })
+    }
+
+###事件：
+    class Like extends Component {
+        constructor() {
+            super();
+            this.state = {
+                isLike: false
+            }
+        }
+        //定义事件
+        testFuc = () => {
+            //react不可直接更改state值，需要this.setState({})修改
+            this.setState({
+                    isLike: !this.state.isLike
+                }
+            )
+        }
+        render() {
+            return (
+                    <span onClick={this.testFuc}>
+                        {
+                            this.state.isLike ? '000' : '111'
+                        }
+                    </span>
+            );
+        }
+    }
+
+
+###修改state值：
+  1、 constructor() {
+        super(); //需调用设置state
+        this.state = {
+            name:"wang"
+        };
+    }
+    this.setState({name:新值}) //state值不可以直接修改，需要调用this.setState进行修改
+
+  2、setState方法可以有两个参数，第一个参数又有两种情况；
+      第一种情况:
+      this.setState({
+        isLike:!isLike
+      });
+
+      第二种情况：
+      this.setState((preState)=>{
+        console.log(preState); //上一次state的值
+        return {
+            //this.isLike : !this.isLike
+            this.isLike : !preState.isLike //也可以这么写
+        }
+      },()=>{
+        //由于setState是异步的，如果想获取最新的state，需要在这个回调函数中获取
+            console.log(this.state)
+      });
+
+
+
+

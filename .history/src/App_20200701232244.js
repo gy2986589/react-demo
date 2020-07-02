@@ -3,8 +3,7 @@ import './App.css';
 import {
     TodoHeader,
     TodoInput,
-    TodoList,
-    Like
+    TodoList
 } from "./components/index";
 
 
@@ -22,9 +21,7 @@ function App() {
             <TodoInput btnTxt={state.footerData}>
                 我是footer-child的内容
             </TodoInput>
-            <TodoList/>
-
-            <Like/>
+            <TodoList></TodoList>
         </div>
     );
 }

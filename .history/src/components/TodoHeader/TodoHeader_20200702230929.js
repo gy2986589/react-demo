@@ -38,15 +38,13 @@ class TodoHeader extends Component {
     render() {
         return (
             <div style={{ width: this.style.width, border: this.style.border, margin: this.style.margin }}>
-                <h3>我是header文件</h3> 
+                <h3>我是header文件</h3> \
                 {this.props.title ? this.props.title:'hahaha'}
                 <br/>
                 {this.props.children}
-                {/*条件渲染方式：*/}
+
                 {
-                    this.data.map(item=>{
-                    return <li key={item.id}>{item.name}</li>
-                    })
+                    console.log(data)
                     
                 }
             </div>

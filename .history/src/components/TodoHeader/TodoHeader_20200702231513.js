@@ -42,7 +42,6 @@ class TodoHeader extends Component {
                 {this.props.title ? this.props.title:'hahaha'}
                 <br/>
                 {this.props.children}
-                {/*条件渲染方式：*/}
                 {
                     this.data.map(item=>{
                     return <li key={item.id}>{item.name}</li>
