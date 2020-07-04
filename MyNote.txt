@@ -62,7 +62,20 @@ extends React.Component定义的组件
        })
     }
 
-###事件：
+###事件：绑定事件全用onClick驼峰方式写
+
+    写法一：
+           <button onClick={()=>{
+             console.log('do some thing')
+           }}></button>
+    写法二：
+            fuc = () =>{
+              console.log("do somthing")
+            }
+            <button onClick = {this.fuc}></button>
+
+
+    例子：
     class Like extends Component {
         constructor() {
             super();
@@ -116,6 +129,27 @@ extends React.Component定义的组件
         //由于setState是异步的，如果想获取最新的state，需要在这个回调函数中获取
             console.log(this.state)
       });
+
+
+###表单双向数据绑定：
+       //单项绑定值
+       constructor() {
+           super();
+           this.state = {
+               inputValue: ""
+           }
+       }
+
+       //绑定onChange事件来实现双向数据绑定
+       inputChange = (e) => {
+           console.log(e.currentTarget.value);//表单内的值用于绑定
+           this.setState({
+               inputValue: e.currentTarget.value
+           })
+       }
+
+
+       <input type="text" placeholder="请输入" value={this.state.inputValue} onChange={this.inputChange}/>
 
 
 
