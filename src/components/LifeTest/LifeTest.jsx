@@ -1,25 +1,57 @@
-import React, {Component} from 'react';
+import React, { Component } from 'react';
 
 class LifeTest extends Component {
     constructor() {
         super();
-    };
-    componentDidMount() {
-        console.log('我是mout')
+        this.state={}
+
+    }
+    static getDrivedStateFormProps(){
+        return {}
     }
 
-    haha=()=>{
+    // componentWillMount() {
+    //     console.log('componentWillMount')
+    // }
+
+    // componentDidMount() {
+    //     console.log('componentDidMount')
+    // }
+
+    // componentWillReceiveProps(nextProps) {
+
+    // }
+
+    // shouldComponentUpdate(nextProps, nextState) {
+
+    // }
+
+    // componentWillUpdate(nextProps, nextState) {
+
+    // }
+
+    // componentDidUpdate(prevProps, prevState) {
+
+    // }
+
+    // componentWillUnmount() {
+
+    // }
+
+    haha = () => {
         console.log('我是按钮')
     }
+
     render() {
-        console.log('1111')
+        console.log('render')
         return (
-            <div style={{border: "2px solid #000", width: "80%", margin: "20px"}}>
-                 <h3>LifeTest组件</h3>
+            <div style={{ border: "2px solid #000", width: "80%", margin: "20px" }}>
+                <h3>LifeTest组件</h3>
                 <button onClick={this.haha}>点我</button>
             </div>
         );
     }
 }
+
 
 export default LifeTest;
