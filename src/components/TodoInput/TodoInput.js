@@ -1,4 +1,4 @@
-import React, {Component} from 'react';
+import React, {Component,createRef} from 'react';
 
 class TodoInput extends Component {
     style = {
@@ -11,7 +11,9 @@ class TodoInput extends Component {
         super();
         this.state = {
             inputValue: ""
-        }
+        };
+        this.inputDom = createRef();
+        this.btnDom = createRef();
     }
 
     inputChange = (e) => {
@@ -20,12 +22,19 @@ class TodoInput extends Component {
             inputValue: e.currentTarget.value
         })
     }
-    resetValue = () => {
+
+    submit=()=>{
+        console.log(this.btnDom,this.btnDom.current.innerHTML);
+
+    }
+
+    //传参方式
+    resetValue = (num) => {
+        console.log(num)
         this.setState({
             inputValue : ""
         })
     }
-
     render() {
         return (
             <div style={{width: this.style.width, border: this.style.border, margin: this.style.margin}}>
@@ -40,9 +49,13 @@ class TodoInput extends Component {
                     placeholder="请输入"
                     value={this.state.inputValue}
                     onChange={this.inputChange}
+                    ref = {this.inputDom}
                 />
-                <button>提交</button>
-                <button onClick={this.resetValue}>重置</button>
+                <button onClick={this.submit} ref={this.btnDom}>提交</button>
+                {/*第一种传参方式：*/}
+                <button onClick={()=>this.resetValue(123345)}>重置</button>
+                {/*第二种传参方式*/}
+                {/*<button onClick={this.resetValue.bind(this,123456)}>重置</button>*/}
 
             </div>
         );

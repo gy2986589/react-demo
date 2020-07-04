@@ -4,8 +4,10 @@ import {
     TodoHeader,
     TodoInput,
     TodoList,
-    Like
+    Like,
+    LifeTest
 } from "./components/index";
+
 
 
 function App() {
@@ -13,7 +15,6 @@ function App() {
         headerData: "我是app传给Header的数据",
         footerData: "我是app传给Footer的数据"
     }
-
     return (
         <div className="App">
             <TodoHeader title={state.headerData}>
@@ -23,8 +24,8 @@ function App() {
                 我是footer-child的内容
             </TodoInput>
             <TodoList/>
-
             <Like/>
+            <LifeTest/>
         </div>
     );
 }

@@ -9,6 +9,8 @@
 //  .'//______.============-..   \ | /   ..-============.______\\`.
 //.'______________________________\|/______________________________`.
 ----------------------------------------------------------------------------------
+
+
 ###创建、启动、打包：
 1、npx create-react-app 项目名
 2、npm start
@@ -17,6 +19,8 @@
 ###创建组件规范
 1、每创建一个组件新建一个文件夹，注意文件夹及文件名必须大写(react规范！！！！)；
 2、若一个文件下有多个组件，最好通过一个js文件暴露出去（比较方便、易于管理！！！）；
+3、在每个组件的目录下新建相应的css文件！
+
 
 ###引入、暴露组件方式：
 方式1：
@@ -62,7 +66,8 @@ extends React.Component定义的组件
        })
     }
 
-###事件：绑定事件全用onClick驼峰方式写
+###事件及参数传递：
+    1、绑定事件全用onClick驼峰方式写
 
     写法一：
            <button onClick={()=>{
@@ -74,6 +79,12 @@ extends React.Component定义的组件
             }
             <button onClick = {this.fuc}></button>
 
+
+    2、传递参数的方式：
+           //第一种传参方式(es6):
+           <button onClick={()=>this.fuc(123345)}>重置</button>
+            //第二种传参方式(手动绑定this,this必须作为第一个参数):
+           <button onClick={this.fuc.bind(this,123456)}>重置</button>
 
     例子：
     class Like extends Component {
@@ -149,8 +160,31 @@ extends React.Component定义的组件
        }
 
 
-       <input type="text" placeholder="请输入" value={this.state.inputValue} onChange={this.inputChange}/>
+    <input type="text" placeholder="请输入" value={this.state.inputValue} onChange={this.inputChange}/>
 
 
 
+###ref Dom 操作
 
+    import React, {Component,createRef} from 'react';//引入creatRef
+
+    constructor() {
+       super();
+       this.btnDom = createRef();//创建DOM
+    }
+
+    <bottom ref={this.btnDom}>按钮<bottom>
+
+###注意一个写法：
+    const obj = {
+        a:1,
+        b:2
+    }
+    const {a,b} = obj(es6 写法)
+
+    console.log(a,b) //打印 1,2
+
+
+###react 生命周期：
+    constructor
+    componentDidMount

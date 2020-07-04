@@ -1,0 +1,8 @@
+需先安装 “ES7 React/Redux/GraphQL/React-Native snippets” 插件
+
+1、rcc + tab键 - - 生成有状态的组件代码块
+
+2、rfc + tab键 - - 生成有状态的组件代码块
+
+
+
