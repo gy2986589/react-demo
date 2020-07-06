@@ -14,9 +14,8 @@ class LifeTest extends Component {
     //     console.log('componentWillMount')
     // }
 
-    // componentDidMount() {
-    //     console.log('componentDidMount')
-    // }
+    componentDidMount() {
+    }
 
     // componentWillReceiveProps(nextProps) {
 

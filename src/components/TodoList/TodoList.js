@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 import TodoItem from './TodoItem'
+import {getdata} from '../../servers' //引入请求接口
+
 
 
 class TodoList extends Component {
@@ -26,6 +28,14 @@ class TodoList extends Component {
         },
 
     ]
+    componentDidMount(){
+        //请求数据
+        getdata().then(res=>{
+            console.log(res);
+        }).catch(err=>{
+            console.log(err)
+        })
+    }
 
     render() {
         return (

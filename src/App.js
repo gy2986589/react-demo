@@ -9,7 +9,6 @@ import {
 } from "./components/index";
 
 
-
 function App() {
     const state = {
         headerData: "我是app传给Header的数据",

@@ -199,3 +199,26 @@ extends React.Component定义的组件
 2.3.componentWillUpdate (nextProps,nextState)
 2.4.componentDidUpdate(prevProps,prevState)
 2.5.render()
+
+
+###请求
+安装aioxs: npm i axios -S
+
+src -> 创建 servers 文件夹 -> 新建 index.js(用于配置)，api.js(用于管理接口)
+
+1、全局挂载：
+ 根文件index.js下
+ import * as servers from './servers/index'
+ React.Component.prototype.http = servers //挂在请求到全局
+
+2、局部挂载（组件内）：
+    import {getdata} from '../../servers' //引入请求接口
+    //请求数据
+    componentDidMount(){
+        //请求数据
+        getdata().then(res=>{
+            console.log(res);
+        }).catch(err=>{
+            console.log(err)
+        })
+    }

@@ -4,6 +4,11 @@ import './index.css';
 import App from './App';
 import * as serviceWorker from './serviceWorker';
 
+
+// import * as servers from './servers/index'
+// React.Component.prototype.http = servers //挂在请求到全局
+
+
 ReactDOM.render(
     <React.StrictMode>
         <App/>
