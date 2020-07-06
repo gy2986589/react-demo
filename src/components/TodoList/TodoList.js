@@ -31,9 +31,9 @@ class TodoList extends Component {
     componentDidMount(){
         //请求数据
         getdata().then(res=>{
-            console.log(res);
+            // console.log(res);
         }).catch(err=>{
-            console.log(err)
+            // console.log(err)
         })
     }
 

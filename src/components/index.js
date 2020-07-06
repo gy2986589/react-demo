@@ -16,3 +16,4 @@ export {default as TodoInput} from "./TodoInput/TodoInput";
 export {default as TodoList} from "./TodoList/TodoList";
 export {default as Like} from "./Like/Like";
 export {default as LifeTest} from "./LifeTest/LifeTest";
+export {default as HooksTest} from "./HooksTest/HooksTest";

@@ -38,11 +38,11 @@ class LifeTest extends Component {
     // }
 
     haha = () => {
-        console.log('我是按钮')
+        // console.log('我是按钮')
     }
 
     render() {
-        console.log('render')
+        // console.log('render')
         return (
             <div style={{ border: "2px solid #000", width: "80%", margin: "20px" }}>
                 <h3>LifeTest组件</h3>
