@@ -2,9 +2,9 @@ import React,{useState,useEffect}from 'react'
 
 function HoooksTest() {
     const [count,setCount] = useState(0)
-    console.log(count,setCount)
+    // console.log(count,setCount)
     useEffect(()=>{
-        console.log('更新')
+        // console.log('更新')
     })
     return (
         <div style={{ margin: '20px', width: '80%', border: '2px solid #000' }}>

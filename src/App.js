@@ -6,7 +6,8 @@ import {
     TodoList,
     Like,
     LifeTest,
-    HooksTest
+    HooksTest,
+    Dad
 } from "./components/index";
 
 
@@ -27,6 +28,7 @@ function App() {
             <Like/>
             <LifeTest/>
             <HooksTest/>
+            <Dad></Dad>
         </div>
     );
 }

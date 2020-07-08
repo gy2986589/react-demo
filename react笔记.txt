@@ -225,6 +225,25 @@ src -> 创建 servers 文件夹 -> 新建 index.js(用于配置)，api.js(用于
 
 
 ###Hooks
-使无状态组件（Function）可以像有状态组件（Class)使用。
-不用为生命周期钩子、this指向等问题烦恼。
+    使无状态组件（Function）可以像有状态组件（Class)使用。
+    不用为生命周期钩子、this指向等问题烦恼。
+    1、useState是一个方法，这个方法的参数就是默认值。结果是一个数组，数组的第一个就是state，第二个
+    相当于setState;
+
+    import React,{useState,useEffect}from 'react';
+    const [count,setCount] = useState(0); //相当于Setstate方法
+
+    2、//useEffect可以监听useState的状态,参数是一个回调，不管是组件挂载还是更新，都会触发
+    这个回调，类似于componentDidMount和componentDidUpdate;
+
+     useEffect(()=>{
+        console.log('每次渲染触发！')
+     })
+
+###Context
+
+没成功再试试。。。
+
+
+
 
