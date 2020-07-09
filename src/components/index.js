@@ -18,3 +18,4 @@ export {default as Like} from "./Like/Like";
 export {default as LifeTest} from "./LifeTest/LifeTest";
 export {default as HooksTest} from "./HooksTest/HooksTest";
 export {default as Dad} from "./ContxtTest/Dad";
+export {default as HOCtest} from "./HOCtest/HOCtest";

@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
 import * as serviceWorker from './serviceWorker';
-
+import {BrowserRouter as Router,Route} from 'react-router-dom'
 
 // import * as servers from './servers/index'
 // React.Component.prototype.http = servers //挂在请求到全局
@@ -11,7 +11,10 @@ import * as serviceWorker from './serviceWorker';
 
 ReactDOM.render(
     <React.StrictMode>
-        <App/>
+        <Router>
+            <Route component={App} path='/'/>
+            {/*<App/>*/}
+        </Router>
     </React.StrictMode>,
     document.getElementById('root')
 );
