@@ -252,6 +252,83 @@ src -> 创建 servers 文件夹 -> 新建 index.js(用于配置)，api.js(用于
 ###redux
 
 ###路由配置
+1、安装 react-router-dom
+入口文件：
+import {BrowserRouter as Router,Route} from 'react-router-dom'
+
+ReactDOM.render(
+    <React.StrictMode>
+        <Router>
+            <Route component={App} path='/'/>
+            {/*<App/>*/}
+        </Router>
+    </React.StrictMode>,
+    document.getElementById('root')
+);
+
+App.js文件
+import {Route, NavLink as Link, Redirect, Switch} from 'react-router-dom'
+
+标签类跳转：
+    <li><Link to="/PageIndex">PageIndex</Link></li>
+    <li><Link to='/PageOne'>PageOne</Link></li>
+    <li><Link to='PageTwo'>PageTwo</Link></li>
+
+    <Switch>
+        <Route component={PageIndex} path="/PageIndex"/>
+        <Route component={PageOne} path="/PageOne"/>
+        <Route component={PageTwo} path="/PageTwo"/>
+        <Redirect to='PageIndex' from='/'/>
+    </Switch>
+函数式跳转：
+this.props.history.push('/PageIndex');
+
+注意如果是深层次组件在组件上定义函数式导航是不起作用的：
+需要用路由高阶组件包裹：
+import { withRouter } from 'react-router-dom';
+xxxxx
+xxxxx
+export default withRouter('组件名')；
+
+
+2、路由传参:
+
+2-1、params:
+<Route path='/path/:name' component={Path}/>
+<link to="/path/2">xxx</Link>
+this.props.history.push({pathname:"/path/" + name});
+读取参数用:this.props.match.params.name
+
+优势 ： 刷新地址栏，参数依然存在
+缺点:只能传字符串，并且，如果传的值太多的话，url会变得长而丑陋。
+
+2-2、query
+<Route path='/query' component={Query}/>
+<Link to={{ path : ' /query' , query : { name : 'sunny' }}}>
+this.props.history.push({pathname:"/query",query: { name : 'sunny' }});
+读取参数用: this.props.location.query.name
+
+优势：传参优雅，传递参数可传对象；
+缺点：刷新地址栏，参数丢失
+
+2-3、state
+<Route path='/sort ' component={Sort}/>
+<Link to={{ path : ' /sort ' , state : { name : 'sunny' }}}> 
+this.props.history.push({pathname:"/sort ",state : { name : 'sunny' }});
+读取参数用: this.props.location.query.state 
+
+优缺点同query
+
+
+2-4、search
+<Route path='/web/departManange ' component={DepartManange}/>
+<link to="web/departManange?tenantId=12121212">xxx</Link>
+this.props.history.push({pathname:"/web/departManange?tenantId" + row.tenantId});
+读取参数用: this.props.location.search
+
+优缺点同params
+
+
 
 
 

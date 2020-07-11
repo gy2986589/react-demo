@@ -37,7 +37,7 @@ class App extends Component {
                     <Route component={PageIndex} path="/PageIndex"/>
                     <Route component={PageOne} path="/PageOne"/>
                     <Route component={PageTwo} path="/PageTwo"/>
-                    <Redirect to='PageIndex' from='/'/>
+                    <Redirect to='/PageIndex' from='/'/>
                 </Switch>
                 {/*<PageIndex/>*/}
                 {/*<TodoHeader title={state.headerData}>*/}
